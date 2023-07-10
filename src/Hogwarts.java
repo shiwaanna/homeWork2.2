@@ -1,4 +1,4 @@
-public class Hogwarts {
+public abstract class Hogwarts {
     private String name;
     private String surname;
     private int power;
@@ -11,35 +11,34 @@ public class Hogwarts {
         this.transgression = transgression;
     }
 
-    public String getName() {
-        return name;
+    public String toString() {
+        return "name '" + name + '\'' + ", surname '" + surname + '\'' +
+                ", power: " + power + ", transgression: " + transgression;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getName() {
+        return name;
     }
 
     public String getSurname() {
         return surname;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void compareTo(Hogwarts other) {
+        int countThis = this.power + this.transgression;
+        int countOther = other.power + other.transgression;
+
+        if (countThis > countOther) {
+            printComparableStudent(this, other);
+        } else if (countThis < countOther) {
+            printComparableStudent(other, this);
+        } else {
+            System.out.println("Суденты одинаково сильны");
+        }
     }
 
-    public int getPower() {
-        return power;
-    }
-
-    public void setPower(int power) {
-        this.power = power;
-    }
-
-    public int getTransgression() {
-        return transgression;
-    }
-
-    public void setTransgression(int transgression) {
-        this.transgression = transgression;
+    private void printComparableStudent(Hogwarts bestStudent, Hogwarts worseStudent) {
+        System.out.println(bestStudent.getName() + " " + bestStudent.getSurname() + " сильнее чем " + " " +
+                worseStudent.getName() + " " + worseStudent.getSurname());
     }
 }

@@ -9,28 +9,28 @@ public class Griffindor extends Hogwarts {
         this.honor = honor;
         this.bravery = bravery;
     }
+    public String toString() {
+        return "Griffindor " +
+                super.toString() +
+                " nobility: " + nobility +
+                ", honor: " + honor +
+                ", bravery: " + bravery;
+    }
+    public void compareTo(Griffindor other) {
+        int countThis = this.nobility + this.honor + this.bravery;
+        int countOther = other.nobility + other.honor + other.bravery;
 
-    public int getNobility() {
-        return nobility;
+        if (countThis > countOther) {
+            printComparableStudent(this, other);
+        } else if (countThis < countOther) {
+            printComparableStudent(other, this);
+        } else {
+            System.out.println("Суденты одинаково сильны");
+        }
     }
 
-    public void setNobility(int nobility) {
-        this.nobility = nobility;
-    }
-
-    public int getHonor() {
-        return honor;
-    }
-
-    public void setHonor(int honor) {
-        this.honor = honor;
-    }
-
-    public int getBravery() {
-        return bravery;
-    }
-
-    public void setBravery(int bravery) {
-        this.bravery = bravery;
+    private void printComparableStudent(Griffindor bestStudent, Griffindor worseStudent) {
+        System.out.println(bestStudent.getName() + " " + bestStudent.getSurname() + " лучший Гриффиндорец, чем  " + " " +
+                worseStudent.getName() + " " + worseStudent.getSurname());
     }
 }

@@ -10,27 +10,28 @@ public class Hufflepuff extends Hogwarts {
         this.honesty = honesty;
     }
 
-    public int getIndustriousness() {
-        return industriousness;
+    public String toString() {
+        return "Hufflepuff " +
+                super.toString() +
+                " industriousness: " + industriousness +
+                ", loyalty: " + loyalty +
+                ", honesty: " + honesty;
+    }
+    public void compareTo(Hufflepuff other) {
+        int countThis = this.industriousness + this.loyalty + this.honesty;
+        int countOther = other.industriousness + other.loyalty + other.honesty;
+
+        if (countThis > countOther) {
+            printComparableStudent(this, other);
+        } else if (countThis < countOther) {
+            printComparableStudent(other, this);
+        } else {
+            System.out.println("Суденты одинаково сильны");
+        }
     }
 
-    public void setIndustriousness(int industriousness) {
-        this.industriousness = industriousness;
-    }
-
-    public int getLoyalty() {
-        return loyalty;
-    }
-
-    public void setLoyalty(int loyalty) {
-        this.loyalty = loyalty;
-    }
-
-    public int getHonesty() {
-        return honesty;
-    }
-
-    public void setHonesty(int honesty) {
-        this.honesty = honesty;
+    private void printComparableStudent(Hufflepuff bestStudent, Hufflepuff worseStudent) {
+        System.out.println(bestStudent.getName() + " " + bestStudent.getSurname() + " лучший Пуффендуец, чем  " + " " +
+                worseStudent.getName() + " " + worseStudent.getSurname());
     }
 }

@@ -14,43 +14,32 @@ public class Slytherin extends Hogwarts {
         this.lustForPower = lustForPower;
     }
 
-    public int getCunning() {
-        return cunning;
+    public String toString() {
+        return "Slytherin " +
+                super.toString() +
+                " cunning: " + cunning +
+                ", determination: " + determination +
+                ", ambition: " + ambition +
+                ", resourcefulness " + resourcefulness +
+                ", lustForPower: " + lustForPower;
+    }
+    public void compareTo(Slytherin other) {
+        int countThis = this.cunning + this.determination + this.ambition +
+                this.resourcefulness + this.lustForPower;
+        int countOther = other.cunning + other.determination + other.ambition +
+                other.resourcefulness + this.lustForPower;
+
+        if (countThis > countOther) {
+            printComparableStudent(this, other);
+        } else if (countThis < countOther) {
+            printComparableStudent(other, this);
+        } else {
+            System.out.println("Суденты одинаково сильны");
+        }
     }
 
-    public void setCunning(int cunning) {
-        this.cunning = cunning;
-    }
-
-    public int getDetermination() {
-        return determination;
-    }
-
-    public void setDetermination(int determination) {
-        this.determination = determination;
-    }
-
-    public int getAmbition() {
-        return ambition;
-    }
-
-    public void setAmbition(int ambition) {
-        this.ambition = ambition;
-    }
-
-    public int getResourcefulness() {
-        return resourcefulness;
-    }
-
-    public void setResourcefulness(int resourcefulness) {
-        this.resourcefulness = resourcefulness;
-    }
-
-    public int getLustForPower() {
-        return lustForPower;
-    }
-
-    public void setLustForPower(int lustForPower) {
-        this.lustForPower = lustForPower;
+    private void printComparableStudent(Slytherin bestStudent, Slytherin worseStudent) {
+        System.out.println(bestStudent.getName() + " " + bestStudent.getSurname() + " лучший Слизеринец, чем " + " " +
+                worseStudent.getName() + " " + worseStudent.getSurname());
     }
 }

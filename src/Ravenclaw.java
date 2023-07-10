@@ -12,35 +12,29 @@ public class Ravenclaw extends Hogwarts {
         this.creation = creation;
     }
 
-    public int getMind() {
-        return mind;
+    public String toString() {
+        return "Ravenclaw " +
+                super.toString() +
+                " mind: " + mind +
+                ", wisdom: " + wisdom +
+                ", wit: " + wit +
+                ", creation " + creation;
+    }
+    public void compareTo(Ravenclaw other) {
+        int countThis = this.mind + this.wisdom + this.wit + this.creation;
+        int countOther = other.mind + other.wisdom + other.wit + other.creation;
+
+        if (countThis > countOther) {
+            printComparableStudent(this, other);
+        } else if (countThis < countOther) {
+            printComparableStudent(other, this);
+        } else {
+            System.out.println("Суденты одинаково сильны");
+        }
     }
 
-    public void setMind(int mind) {
-        this.mind = mind;
-    }
-
-    public int getWisdom() {
-        return wisdom;
-    }
-
-    public void setWisdom(int wisdom) {
-        this.wisdom = wisdom;
-    }
-
-    public int getWit() {
-        return wit;
-    }
-
-    public void setWit(int wit) {
-        this.wit = wit;
-    }
-
-    public int getCreation() {
-        return creation;
-    }
-
-    public void setCreation(int creation) {
-        this.creation = creation;
+    private void printComparableStudent(Ravenclaw bestStudent, Ravenclaw worseStudent) {
+        System.out.println(bestStudent.getName() + " " + bestStudent.getSurname() + " лучший Когтевранец, чем " + " " +
+                worseStudent.getName() + " " + worseStudent.getSurname());
     }
 }
